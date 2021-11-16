@@ -16,6 +16,7 @@ Web Development Platform  <img src="https://media.giphy.com/media/12oufCB0MyZ1Go
 <img align="left" src="https://img.shields.io/badge/javascript-6DA55F?style=for-the-badge&logo=js&logoColor=white" />
 <img align="left" src="https://img.shields.io/badge/angular.js-6DA55F?style=for-the-badge&logo=angularjs&logoColor=white" />
 
+<br>
 <h2>Back-End Tecnologies</h2>
 
 <img align="left" src="https://img.shields.io/badge/sql-6DA55F?style=for-the-badge&logo=sql&logoColor=white" />
