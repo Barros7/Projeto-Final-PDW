@@ -4,9 +4,9 @@ Web Development Platform  <img src="https://media.giphy.com/media/12oufCB0MyZ1Go
 </h1>
 
 
-<img align="left"  width="47%"  src="https://github-readme-stats.vercel.app/api?username=Barros7/Projeto-Final-PDW&show=true&theme=radical " />
+<img align="left"  width="47%"  src="https://github-readme-stats.vercel.app/api?username=Barros7&show=true&theme=radical " />
 
-<img align="left" width="48%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Barros7/Projeto-Final-PDW&layout=compact" />
+<img align="left" width="48%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Barros7&layout=compact" />
 
 <br/>
 <h2>Front-End Tecnologies</h2>
