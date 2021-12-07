@@ -14,5 +14,8 @@ class SubCategorySeeder extends Seeder
     public function run()
     {
         //
+        \APP\Models\Category::factory(10)
+        ->hasCategory(10)
+        ->create();
     }
 }

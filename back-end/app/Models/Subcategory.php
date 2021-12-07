@@ -11,9 +11,27 @@ class Subcategory extends Model
 
     protected $fillable = [
         'name',
+        'value',
+        'date_time'
     ];
 
-    public function sub_category(){
+    public function getNameAttribute(){
+        return $this->attributes['name'];
+    }
+
+    public function setNameAttribute($name){
+        return $this->attributes['name'] = $name;
+    }
+
+    public function getValueAttribute(){
+        return $this->attributes['value'] / 100;
+    }
+
+    public function setValueAttribute($value){
+        return $this->attributes['value'] = $value * 100;
+    }
+
+    public function subCategory(){
         return $this->belongsTo(Category::class); //sub_category belongs to category model.
     }
 }

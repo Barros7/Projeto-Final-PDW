@@ -15,9 +15,9 @@ class SubCategoryFactory extends Factory
     {
         return [
             //
-            'subcategory_name' => $this->faker->subcategory_name(),
-            'subcategory_value' => $this->faker->subcategory_value(),
-            'subcategory_expense' => $this->faker->subcategory_date()
+            'name' => $this->faker->words(3, true),
+            'value' => $this->faker->randomFloat(2, 100, 300),
+            'date_time' => $this->faker->dateTime()
         ];
     }
 }

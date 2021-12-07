@@ -15,6 +15,14 @@ class Category extends Model
         'date_time'
     ];
 
+    public function getNameAttribute(){
+        return $this->attributes['name'];
+    }
+
+    public function setNameAttribute($name){
+        return $this->attributes['name'] = $name;
+    }
+
     public function subcategory(){
         return $this->hasMany(Subcategory::class); //search category_id
     }
