@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('category', \App\Http\Controllers\api\UserController::class);
 
 
-// Tudo abaixo será eliminadooooooooooooo
+// Tudo abaixo será eliminadoooooooooooo
 Route::middleware('auth:sanctum')->post('/register', function(request $request){
 
 });
