@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Subcategorys extends Migration
+class Expense extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,15 @@ class Subcategorys extends Migration
     public function up()
     {
         //
-        Schema::create('subcategorys', function (Blueprint $table) {
+        Schema::create('expense', function(Blueprint $table){
             $table->id();
             $table->string('name');
-            $table->foreign('categorys_id')->references('id')->on('categorys');
+            $table->integer('value');
+            $table->timestamp('date_time');
+            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('users_id');
+            $table->foreign('category_id')->references('id')->on('category');
+            $table->foreign('users_id')->references('id')->on('users');
         });
     }
 

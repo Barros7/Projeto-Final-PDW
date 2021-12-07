@@ -11,5 +11,11 @@ class Category extends Model
 
     protected $fillable = [
         'name',
+        'value',
+        'date_time'
     ];
+
+    public function subcategory(){
+        return $this->hasMany(Subcategory::class); //search category_id
+    }
 }

@@ -15,6 +15,7 @@ class CategoryFactory extends Factory
     {
         return [
             //
+            'category_name' => $this->faker->category_name(),
         ];
     }
 }
