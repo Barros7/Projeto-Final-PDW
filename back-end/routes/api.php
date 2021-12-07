@@ -18,10 +18,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:sanctum')->get('/login', function(request $request){
+Route::apiResource('category', \App\Http\Controllers\api\UserController::class);
 
-});
 
+// Tudo abaixo será eliminadooooooooooooo
 Route::middleware('auth:sanctum')->post('/register', function(request $request){
 
 });
