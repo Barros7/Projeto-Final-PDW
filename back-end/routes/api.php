@@ -26,6 +26,6 @@ Route::middleware('auth:sanctum')->post('/register', function(request $request){
 
 });
 
-Route::middleware('auth:sanctum')->get('/del', function(request $request){
+Route::middleware('auth:sanctum')->delete('/del', function(request $request){
 
 });
