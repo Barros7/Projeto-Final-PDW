@@ -34,5 +34,6 @@ class Expense extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('expense');
     }
 }

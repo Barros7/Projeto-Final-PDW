@@ -30,5 +30,6 @@ class SubCategory extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('subcategory');
     }
 }
