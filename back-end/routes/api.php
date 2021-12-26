@@ -19,11 +19,11 @@ use Illuminate\Support\Facades\Route;
     Route::put('/user/edit/{id}', 'App\Http\Controllers\UserController@update');
     Route::delete('/user/delete/{id}', 'App\Http\Controllers\UserController@destroy');
 
-    Route::get('/expense', 'App\Http\Controllers\ExpenseController@index');
-    Route::get('/expense/{id}', 'App\Http\Controllers\ExpenseController@show');
-    Route::post('/expense/save', 'App\Http\Controllers\ExpenseController@store');
-    Route::put('/expense/edit/{id}', 'App\Http\Controllers\ExpenseController@update');
-    Route::delete('/expense/delete/{id}', 'App\Http\Controllers\ExpenseController@destroy');
+    Route::get('/expense', 'App\Http\Controllers\ExpenseController@index'); //Show all registered expense
+    Route::get('/expense/{id}', 'App\Http\Controllers\ExpenseController@show'); //Show one registered expense
+    Route::post('/expense/save', 'App\Http\Controllers\ExpenseController@store'); //Save expense on database
+    Route::put('/expense/edit/{id}', 'App\Http\Controllers\ExpenseController@update'); //Edit expense
+    Route::delete('/expense/delete/{id}', 'App\Http\Controllers\ExpenseController@destroy'); //Delete expense
 
     Route::get('/category', 'App\Http\Controllers\CategoryController@index');
     Route::get('/category/{id}', 'App\Http\Controllers\CategoryController@show');
