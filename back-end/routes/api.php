@@ -2,10 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\ExpenseController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\SubcategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,35 +13,33 @@ use App\Http\Controllers\SubcategoryController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-    Route::get('/user', [UserController::class, 'index']);
-    Route::get('/user/{id}', [UserController::class, 'show']);
-    Route::post('/user', [UserController::class, 'store']);
-    Route::put('/user/{id}', [UserController::class, 'update']);
-    Route::delete('/user{id}', [UserController::class, 'destroy']);
+    Route::get('/user', 'App\Http\Controllers\UserController@index');
+    Route::get('/user/{id}', 'App\Http\Controllers\UserController@show');
+    Route::post('/user/save', 'App\Http\Controllers\UserController@store');
+    Route::put('/user/edit/{id}', 'App\Http\Controllers\UserController@update');
+    Route::delete('/user/delete/{id}', 'App\Http\Controllers\UserController@destroy');
 
-    Route::get('/expense', [ExpenseController::class, 'index']);
-    Route::get('/expense/{id}', [ExpenseController::class, 'show']);
-    Route::post('/expense', [ExpenseController::class, 'store']);
-    Route::put('/expense/{id}', [ExpenseController::class, 'update']);
-    Route::delete('/expense{id}', [ExpenseController::class, 'destroy']);
+    Route::get('/expense', 'App\Http\Controllers\ExpenseController@index');
+    Route::get('/expense/{id}', 'App\Http\Controllers\ExpenseController@show');
+    Route::post('/expense/save', 'App\Http\Controllers\ExpenseController@store');
+    Route::put('/expense/edit/{id}', 'App\Http\Controllers\ExpenseController@update');
+    Route::delete('/expense/delete/{id}', 'App\Http\Controllers\ExpenseController@destroy');
 
-    Route::get('/category', [CategoryController::class, 'index']);
-    Route::get('/category/{id}', [CategoryController::class, 'show']);
-    Route::post('/category', [CategoryController::class, 'store']);
-    Route::put('/category/{id}', [CategoryController::class, 'update']);
-    Route::delete('/category{id}', [CategoryController::class, 'destroy']);
+    Route::get('/category', 'App\Http\Controllers\CategoryController@index');
+    Route::get('/category/{id}', 'App\Http\Controllers\CategoryController@show');
+    Route::post('/category/save', 'App\Http\Controllers\CategoryController@store');
+    Route::put('/category/edit/{id}', 'App\Http\Controllers\CategoryController@update');
+    Route::delete('/category/delete/{id}', 'App\Http\Controllers\CategoryController@destroy');
 
-    Route::get('/subcategory', [SubcategoryController::class, 'index']);
-    Route::get('/subcategory/{id}', [SubcategoryController::class, 'show']);
-    Route::post('/subcategory', [SubcategoryController::class, 'store']);
-    Route::put('/subcategory/{id}', [SubcategoryController::class, 'update']);
-    Route::delete('/subcategory{id}', [SubcategoryController::class, 'destroy']);
+    Route::get('/subcategory', 'App\Http\Controllers\SubcategoryController@index');
+    Route::get('/subcategory/{id}', 'App\Http\Controllers\SubcategoryController@show');
+    Route::post('/subcategory/save', 'App\Http\Controllers\SubcategoryController@store');
+    Route::put('/subcategory/edit/{id}', 'App\Http\Controllers\SubcategoryController@update');
+    Route::delete('/subcategory/delete/{id}', 'App\Http\Controllers\SubcategoryController@destroy');
 
-    //API route for login user
-    Route::post('/login', [App\Http\Controllers\AuthController::class, 'login']);
+    Route::post('/login', [App\Http\Controllers\AuthController::class, 'login']); //API route for login user
 
-    //API route for register new user
-    Route::post('/register', [App\Http\Controllers\AuthController::class, 'register']);
+    Route::post('/register', [App\Http\Controllers\AuthController::class, 'register']); //API route for register new user
   
     //Protecting Routes
     Route::group(['middleware' => ['auth:sanctum']], function () {
@@ -53,8 +47,7 @@ use App\Http\Controllers\SubcategoryController;
             return auth()->user();
         });
 
-        // API route for logout user
-        Route::post('/logout', [App\Http\Controllers\AuthController::class, 'logout']);
+        Route::post('/logout', [App\Http\Controllers\AuthController::class, 'logout']);// API route for logout user
     });
 
     Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

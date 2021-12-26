@@ -18,7 +18,7 @@ class Category extends Migration
             $table->id();
             $table->string('name');
             $table->integer('value');
-            $table->timestamp('date_time');
+            $table->timestamps();
         });
     }
 

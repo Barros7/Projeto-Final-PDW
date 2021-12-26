@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User as User;
+use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
-use APP\Http\Resources\UserResource as UserResource;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
-
-class UserController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,12 +17,14 @@ class UserController extends Controller
     public function index()
     {
         //
-        $user = User::all();
+        $category = Category::all();
         return response()->json([
             "success" => true,
-            "message" => "User List",
-            "data" => $user
+            "message" => "Category List",
+            "data" => $category
         ]);
+
+        //return $category;
     }
 
     /**
@@ -35,6 +36,11 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        $category = new Category();
+        $category->name = $request->name;
+        $category->value = $request->value;
+
+        $category->save();
     }
 
     /**
@@ -46,14 +52,14 @@ class UserController extends Controller
     public function show($id)
     {
         //
-        $user = User::find($id);
-        if (is_null($user)) {
-            return $this->sendError('User not found.');
+        $category = Category::find($id);
+        if (is_null($category)) {
+            return $this->sendError('Category not found.');
         }
         return response()->json([
             "success" => true,
-            "message" => "User retrieved successfully.",
-            "data" => $user
+            "message" => "Category retrieved successfully.",
+            "data" => $category
         ]);
     }
 
@@ -64,17 +70,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
-        $user = User::findOrFail($request->id);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
+        $category = Category::findOrFail($request->id);
+        $category->name = $request->name;
+        $category->value = $request->value;
+        $category->date_time = $request->date_time;
 
-        $user->save();
+        $category->save();
 
-        return $user;
+        return $category;
     }
 
     /**
@@ -85,8 +91,9 @@ class UserController extends Controller
      */
     public function destroy(Request $request)
     {
-        //
-        $user = User::destroy($request->id);
-        return $user;
+        //        
+        $category = Category::destroy($request->id);
+        return $category;
     }
 }
+

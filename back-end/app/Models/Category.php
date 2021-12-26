@@ -9,21 +9,9 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected $table = "category";
     protected $fillable = [
         'name',
-        'value',
-        'date_time'
+        'value'
     ];
-
-    public function getNameAttribute(){
-        return $this->attributes['name'];
-    }
-
-    public function setNameAttribute($name){
-        return $this->attributes['name'] = $name;
-    }
-
-    public function subcategory(){
-        return $this->hasMany(Subcategory::class); //search category_id
-    }
 }

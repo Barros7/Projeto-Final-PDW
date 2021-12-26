@@ -23,6 +23,8 @@ class ExpenseController extends Controller
             "message" => "Expense List",
             "data" => $expense
         ]);
+
+        //return $expense;
     }
 
     /**
@@ -34,20 +36,11 @@ class ExpenseController extends Controller
     public function store(Request $request)
     {
         //
-        $input = $request->all();
-        $validator = Validator::make($input, [
-            'name' => 'required',
-            'value' => 'required'
-        ]);
-        if($validator->fails()){
-            return $this->sendError('Validation Error.', $validator->errors());       
-        }
-        $expense = Expense::create($input);
-        return response()->json([
-            "success" => true,
-            "message" => "Expense created successfully.",
-            "data" => $expense
-        ]);
+        $expense = new Expense();
+        $expense->name = $request->name;
+        $expense->value = $request->value;
+
+        $expense->save();
     }
 
     /**
@@ -61,11 +54,11 @@ class ExpenseController extends Controller
         //
         $expense = Expense::find($id);
         if (is_null($expense)) {
-            return $this->sendError('Product not found.');
+            return $this->sendError('Expense not found.');
         }
         return response()->json([
             "success" => true,
-            "message" => "Product retrieved successfully.",
+            "message" => "Expense retrieved successfully.",
             "data" => $expense
         ]);
     }
@@ -77,25 +70,17 @@ class ExpenseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Expense $expense)
+    public function update(Request $request)
     {
         //
-        $input = $request->all();
-        $validator = Validator::make($input, [
-            'name' => 'required',
-            'value' => 'required'
-        ]);
-        if($validator->fails()){
-            return $this->sendError('Validation Error.', $validator->errors());       
-        }
-        $expense->name = $input['name'];
-        $expense->value = $input['value'];
+        $expense = Expense::findOrFail($request->id);
+        $expense->name = $request->name;
+        $expense->value = $request->value;
+        $expense->date_time = $request->date_time;
+
         $expense->save();
-        return response()->json([
-            "success" => true,
-            "message" => "Expense updated successfully.",
-            "data" => $expense
-        ]);
+
+        return $expense;
     }
 
     /**
@@ -104,15 +89,11 @@ class ExpenseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Expense $expense)
+    public function destroy(Request $request)
     {
-        //
-        $expense->delete();
-        return response()->json([
-            "success" => true,
-            "message" => "Expense deleted successfully.",
-            "data" => $expense
-        ]);
+        //        
+        $expense = Expense::destroy($request->id);
+        return $expense;
     }
 }
 

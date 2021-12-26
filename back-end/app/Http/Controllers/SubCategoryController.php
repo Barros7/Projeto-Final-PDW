@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Subcategory as Subcategory;
-use APP\Http\Resources\SubcategoryResource as SubcategoryResource;
 use App\Http\Controllers\Controller;
-use DateTime;
 use Illuminate\Http\Request;
+use App\Models\Subcategory;
 
 class SubCategoryController extends Controller
 {
@@ -18,8 +16,12 @@ class SubCategoryController extends Controller
     public function index()
     {
         //
-        $subCategory = SubCategory::paginate(10);
-        return SubCategoryResource::collection( $subCategory );
+        $subcategory = Subcategory::all();
+        return response()->json([
+            "success" => true,
+            "message" => "SubCategory List",
+            "data" => $subcategory
+        ]);
     }
 
     /**
@@ -31,14 +33,10 @@ class SubCategoryController extends Controller
     public function store(Request $request)
     {
         //
-        $subCategory = new SubCategoryController;
-        $subCategory -> name = $request -> input('Restaurante');
-        $subCategory -> value = $request -> input(50);
-        $subCategory -> date_time = date('yy-mm-dd');
+        $subcategory = new SubCategory();
+        $subcategory->name = $request->name;
 
-        if($subCategory -> save()){
-            return new SubcategoryResource ( $subCategory );
-        }
+        $subcategory->save();
     }
 
     /**
@@ -50,6 +48,15 @@ class SubCategoryController extends Controller
     public function show($id)
     {
         //
+        $subcategory = SubCategory::find($id);
+        if (is_null($subcategory)) {
+            return $this->sendError('SubCategory not found.');
+        }
+        return response()->json([
+            "success" => true,
+            "message" => "SubCategory retrieved successfully.",
+            "data" => $subcategory
+        ]);
     }
 
     /**
@@ -59,9 +66,15 @@ class SubCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+        $subcategory = SubCategory::findOrFail($request->id);
+        $subcategory->name = $request->name;
+
+        $subcategory->save();
+
+        return $subcategory;
     }
 
     /**
@@ -70,8 +83,11 @@ class SubCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        //        
+        $subcategory = SubCategory::destroy($request->id);
+        return $subcategory;
     }
 }
+
