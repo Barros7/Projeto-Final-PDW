@@ -1,24 +1,32 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListaContatosComponent } from './lista-contatos/lista-contatos.component';
-import { ProdutoComponent } from './produto/produto.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/layout/header/header.component';
+import { AsideComponent } from './components/layout/aside/aside.component';
+import { FooterComponent } from './components/layout/footer/footer.component';
+import { LoginComponent } from './components/views/login/login.component';
+import { RegisterComponent } from './components/views/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListaContatosComponent,
-    ProdutoComponent,
     HeaderComponent,
-    FooterComponent
+    AsideComponent,
+    FooterComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

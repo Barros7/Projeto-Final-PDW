@@ -37,7 +37,7 @@ use Illuminate\Support\Facades\Route;
     Route::put('/subcategory/edit/{id}', 'App\Http\Controllers\SubcategoryController@update');
     Route::delete('/subcategory/delete/{id}', 'App\Http\Controllers\SubcategoryController@destroy');
 
-    Route::post('/login', [App\Http\Controllers\AuthController::class, 'login']); //API route for login user
+    Route::post('/login', [App\Http\Controllers\AuthController::class, 'login'])->middleware('Cors');; //API route for login user
 
     Route::post('/register', [App\Http\Controllers\AuthController::class, 'register']); //API route for register new user
   
