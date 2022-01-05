@@ -5,7 +5,7 @@
 
 body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-image: url("./assets/background.jpg");
+    background-image: url("./assets/img/background.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -24,4 +24,23 @@ body {
 .btn{
     margin: 0 25%;
     width: 50%;
+}
+
+.page-content {
+    width: calc(100% - 17rem);
+    margin-left: 17rem;
+    transition: all 0.4s;
+}
+
+.separator {
+    margin: 3rem 0;
+    border-bottom: 1px dashed #fff;
+}
+    
+.text-uppercase {
+    letter-spacing: 0.1em;
+}
+
+.text-gray {
+    color: #aaa;
 }
