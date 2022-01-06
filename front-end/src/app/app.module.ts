@@ -15,6 +15,7 @@ import { SidenavComponent } from './components/layout/sidenav/sidenav.component'
 import { ProfileComponent } from './components/views/profile/profile.component';
 import { ExpenseComponent } from './components/views/expense/expense.component';
 import { AboutComponent } from './components/views/about/about.component';
+import { NavBarComponent } from './components/layout/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AboutComponent } from './components/views/about/about.component';
     SidenavComponent,
     ProfileComponent,
     ExpenseComponent,
-    AboutComponent
+    AboutComponent,
+    NavBarComponent
   ],
   imports: [
     MatToolbarModule,
