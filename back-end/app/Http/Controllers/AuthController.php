@@ -39,7 +39,7 @@ class AuthController extends Controller
         if (!Auth::attempt($request->only('email', 'password')))
         {
             return response()
-                ->json(['message' => 'Email or Password'], 401);
+                ->json(['message' => 'Email ou Password errada'], 401);
         }
 
         $user = User::where('email', $request['email'])->firstOrFail();
