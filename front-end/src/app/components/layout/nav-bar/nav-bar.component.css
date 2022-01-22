@@ -1,0 +1,78 @@
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  float: left;
+  display: inline;
+  background: #0d1642;
+  width:30%;
+  height: 100%;
+}
+ul li {
+    position: relative;
+    width: 100%;
+    margin-top: 50px;
+}
+h3{
+  color:#FFF;
+  text-align: center;
+}
+.dl_sub_dd2{
+  background: #293262;
+  display: none;
+}
+.dl_sub_dd{
+  background: #1b2452;
+  display: none;
+}
+ul li a {
+  width: 100%;
+  display: block;
+  text-decoration: none;
+  color: #FFF;
+  padding: 5px;
+  text-align: center;
+}
+ul li button{
+  display: block;
+  text-decoration: none;
+  color: #FFF;
+  background: #5c5758;
+  padding: 5px;
+  border: 1px solid #ccc;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+/* Fix IE. Hide from IE Mac \*/
+* html ul li { float: left; }
+* html ul li a { height: 1%; }
+/* End */
+nav{
+  height: 100%;
+  width: 45%;
+  position: absolute;
+
+}
+
+.dash,.dl_link, .perfil{
+  padding: 50px;  
+}
+
+.dash:hover,.dl_link:hover, .perfil:hover{
+  background-color: #1b2452;  
+}
+
+.dash:active,.dl_link:active, .perfil:active{
+  transform: scale(1.02); 
+}
+
+.dl_link2:hover{
+  background-color: #293262;
+}
+
+.dl_link2:active{
+  transform: scale(1.02);
+}
+

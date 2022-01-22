@@ -1,0 +1,61 @@
+<nav>
+  <ul>
+    <li><a class="dash" routerLink="home">Dashboard</a></li>
+    <li><a class="dl_link" >Adicionar</a></li>
+    <li><a class="perfil" routerLink="profile">Perfil</a></li>
+  </ul>
+  <ul class="dl_sub_dd">
+    <li><h3>Categorias</h3></li>
+    <li><a class="dl_link2" >Saúde</a></li>
+    <li><button class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#addcategoria">Adicionar</button></li>
+  </ul>
+  <ul class="dl_sub_dd2">
+    <li><h3>Sub-Categorias</h3></li>
+    <li><a >Consulta Médica</a></li>
+    <li><button class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#addsubcategoria">Adicionar</button></li>
+  </ul>
+</nav>
+<div class="modal fade" id="addcategoria" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Adicionar Categoria</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <label data-error="wrong" data-success="right" for="form3">Categoria</label>
+          <i class="fas fa-user prefix grey-text"></i>
+          <input type="text" id="form3" class="form-control validate">
+        </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button class="btn btn-indigo">Confirmar <i class="fas fa-paper-plane-o ml-1"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="addsubcategoria" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Adicionar Sub-Categoria</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <label data-error="wrong" data-success="right" for="form3">Sub-Categoria</label>
+          <i class="fas fa-user prefix grey-text"></i>
+          <input type="text" id="form3" class="form-control validate">
+        </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button class="btn btn-indigo">Confirmar <i class="fas fa-paper-plane-o ml-1"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
