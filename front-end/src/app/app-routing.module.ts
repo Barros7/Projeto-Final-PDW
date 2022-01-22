@@ -8,7 +8,7 @@ import { AboutComponent } from './components/views/about/about.component';
 import { ProfileComponent } from './components/views/profile/profile.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: '', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path:'home', component: HomeComponent },
   { path:'expense', component: ExpenseComponent },
