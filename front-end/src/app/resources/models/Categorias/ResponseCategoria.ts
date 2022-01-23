@@ -1,3 +1,5 @@
 export class ResponseCategoria{
-    public jwt!: String;
+    public name!: String;
+    public value!: String;
+    public id!: number;
 }

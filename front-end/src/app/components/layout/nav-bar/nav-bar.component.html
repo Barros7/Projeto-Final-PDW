@@ -6,12 +6,12 @@
   </ul>
   <ul class="dl_sub_dd">
     <li><h3>Categorias</h3></li>
-    <li *ngFor="let categoria of categorias"><a class="dl_link2">{{ categoria.name }}</a></li>
+    <li *ngFor="let categoria of categorias"><a (click)="loadSubcategorias(categoria)" class="dl_link2">{{ categoria.name }}</a></li>
     <li><button class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#addcategoria">Adicionar</button></li>
   </ul>
   <ul class="dl_sub_dd2">
     <li><h3>Sub-Categorias</h3></li>
-    <li><a routerLink="expense">Consulta Médica</a></li>
+    <li *ngFor="let sub of subcategorias"><a routerLink="expense">{{ sub.name }}</a></li>
     <li><button class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#addsubcategoria">Adicionar</button></li>
   </ul>
 </nav>
@@ -57,11 +57,12 @@
         <div class="md-form mb-5">
           <label data-error="wrong" data-success="right" for="form3">Sub-Categoria</label>
           <i class="fas fa-user prefix grey-text"></i>
-          <input type="text" id="form3" class="form-control validate">
+          <input [(ngModel)]="requestSubcategoria.name" type="text" class="form-control" id="name" name="name" aria-describedby="name">
+          <div id="name" class="form-text"></div>
         </div>
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-indigo">Confirmar <i class="fas fa-paper-plane-o ml-1"></i></button>
+        <button (click)="saveSubcategorias()" type="submit" class="btn btn-indigo">Confirmar <i class="fas fa-paper-plane-o ml-1"></i></button>
       </div>
     </div>
   </div>

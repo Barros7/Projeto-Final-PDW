@@ -33,6 +33,7 @@ use Illuminate\Support\Facades\Route;
 
     Route::get('/subcategory', 'App\Http\Controllers\SubcategoryController@index');
     Route::get('/subcategory/{id}', 'App\Http\Controllers\SubcategoryController@show');
+    Route::get('/subcategory/find/{category_id}', 'App\Http\Controllers\SubcategoryController@categoryid');
     Route::post('/subcategory/save', 'App\Http\Controllers\SubcategoryController@store');
     Route::put('/subcategory/edit/{id}', 'App\Http\Controllers\SubcategoryController@update');
     Route::delete('/subcategory/delete/{id}', 'App\Http\Controllers\SubcategoryController@destroy');

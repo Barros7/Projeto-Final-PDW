@@ -16,8 +16,8 @@ export class CategoriaService {
     return this.httpClient.post<ResponseCategoria>('http://127.0.0.1:8000/api/category/save', requestCategoria);
   }
 
-  public getCategorias(): Observable<RequestCategoria[]> {
-    return this.httpClient.get<RequestCategoria[]>('http://127.0.0.1:8000/api/category').pipe(map((res: any) => Object.values(res)));
+  public getCategorias(): Observable<ResponseCategoria[]> {
+    return this.httpClient.get<ResponseCategoria[]>('http://127.0.0.1:8000/api/category').pipe(map((res: any) => Object.values(res)));
   }
 }
 

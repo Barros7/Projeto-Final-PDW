@@ -59,6 +59,29 @@ class SubCategoryController extends Controller
         ]);
     }
 
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $category_id
+     * @return \Illuminate\Http\Response
+     */
+    public function categoryid($category_id)
+    {
+        //
+        $subcategory = SubCategory::where('category_id', $category_id)->get();
+        if (is_null($subcategory)) {
+            return $this->sendError('SubCategory not found.');
+        }
+        return response()->json([
+            "success" => true,
+            "message" => "SubCategory retrieved successfully.",
+            "data" => $subcategory
+        ]);
+    }
+
+
+
     /**
      * Update the specified resource in storage.
      *
