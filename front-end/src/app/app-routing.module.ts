@@ -6,13 +6,20 @@ import { HomeComponent } from './components/views/home/home.component';
 import { ExpenseComponent } from './components/views/expense/expense.component';
 import { AboutComponent } from './components/views/about/about.component';
 import { ProfileComponent } from './components/views/profile/profile.component';
+import { AuthGuardService } from './resources/services/auth/auth-guard.service';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
+  { 
+    path:'home', 
+    canActivate: [AuthGuardService],
+    component: HomeComponent, 
+    loadChildren: () =>
+    import('./components/views/home/home.component').then( (h) => h.HomeComponent ),
+  },
   { path: 'register', component: RegisterComponent },
-  { path:'home', component: HomeComponent },
   { path:'expense', component: ExpenseComponent },
-  { path:'profile', component: ProfileComponent },
+  { path:'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
   { path:'about', component: AboutComponent },
 ];
 

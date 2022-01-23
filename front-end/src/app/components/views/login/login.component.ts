@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
 
   public doLogin() :void {
     this.loginService.doLogin(this.requestLogin).subscribe((data)=>{
+      console.log("success!");
       this.router.navigate(['home']);
       },
       (httpError) =>{
