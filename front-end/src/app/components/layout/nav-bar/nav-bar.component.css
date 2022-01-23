@@ -52,6 +52,27 @@ ul li button{
 nav{
   height: 100%;
   width: 45%;
-  position: fixed;
+  position: absolute;
+
+}
+
+.dash,.dl_link, .perfil{
+  padding: 50px;  
+}
+
+.dash:hover,.dl_link:hover, .perfil:hover{
+  background-color: #1b2452;  
+}
+
+.dash:active,.dl_link:active, .perfil:active{
+  transform: scale(1.02); 
+}
+
+.dl_link2:hover{
+  background-color: #293262;
+}
+
+.dl_link2:active{
+  transform: scale(1.02);
 }
 
