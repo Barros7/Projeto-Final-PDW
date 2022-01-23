@@ -35,6 +35,7 @@ class SubCategoryController extends Controller
         //
         $subcategory = new SubCategory();
         $subcategory->name = $request->name;
+        $subcategory->category_id = $request->category_id;
 
         $subcategory->save();
     }

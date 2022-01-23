@@ -19,9 +19,9 @@ class Expense extends Migration
             $table->string('name');
             $table->integer('value');
             $table->timestamps();
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('subcategory_id');
             $table->unsignedBigInteger('users_id');
-            $table->foreign('category_id')->references('id')->on('category');
+            $table->foreign('subcategory_id')->references('id')->on('subcategory');
             $table->foreign('users_id')->references('id')->on('users');
         });
     }

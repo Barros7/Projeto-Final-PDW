@@ -11,7 +11,7 @@
   </ul>
   <ul class="dl_sub_dd2">
     <li><h3>Sub-Categorias</h3></li>
-    <li *ngFor="let sub of subcategorias"><a routerLink="expense">{{ sub.name }}</a></li>
+    <li *ngFor="let sub of subcategorias"><a (click)="loadExpenses(sub)"  class="dl_link2">{{ sub.name }}</a></li>
     <li><button class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#addsubcategoria">Adicionar</button></li>
   </ul>
 </nav>
