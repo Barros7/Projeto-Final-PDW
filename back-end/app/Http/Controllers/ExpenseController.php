@@ -63,6 +63,27 @@ class ExpenseController extends Controller
         ]);
     }
 
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showFindid($subcategory_id)
+    {
+        //
+        $expense = Expense::where('subcategory_id', $subcategory_id)->get();
+        if (is_null($expense)) {
+            return $this->sendError('Expense not found.');
+        }
+        return response()->json([
+            "success" => true,
+            "message" => "Expense retrieved successfully.",
+            "data" => $expense
+        ]);
+    }
+
     /**
      * Update the specified resource in storage.
      *

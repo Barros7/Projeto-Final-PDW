@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable } from 'rxjs';
-import { RequestCategoria } from '../../models/Categorias/RequestCategoria';
 import { RequestSubcategoria } from '../../models/Subcategorias/RequestSubcategoria';
 import { ResponseSubcategoria } from '../../models/Subcategorias/ResponseSubcategoria';
 import { map } from "rxjs/operators"; 

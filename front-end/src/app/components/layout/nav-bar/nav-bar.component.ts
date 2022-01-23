@@ -4,11 +4,15 @@ import * as $ from 'jquery'
 import { map } from 'rxjs/operators';
 import { RequestCategoria } from 'src/app/resources/models/Categorias/RequestCategoria';
 import { ResponseCategoria } from 'src/app/resources/models/Categorias/ResponseCategoria';
+import { RequestExpenses } from 'src/app/resources/models/Expenses/RequestExpenses';
+import { ResponseExpenses } from 'src/app/resources/models/Expenses/ResponseExpenses';
 import { RequestSubcategoria } from 'src/app/resources/models/Subcategorias/RequestSubcategoria';
 import { ResponseSubcategoria } from 'src/app/resources/models/Subcategorias/ResponseSubcategoria';
 import { AlertService } from 'src/app/resources/services/alert/alert.service';
 import { CategoriaService } from 'src/app/resources/services/categoria/categoria.service';
+import { ExpensesService } from 'src/app/resources/services/expenses/expenses.service';
 import { SubcategoriaService } from 'src/app/resources/services/subcategoria/subcategoria.service';
+import { SenderService } from 'src/app/sender.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -16,17 +20,21 @@ import { SubcategoriaService } from 'src/app/resources/services/subcategoria/sub
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  idcategory: any;
+  idcategory!: number;
   public requestCategoria!: RequestCategoria;
   public requestSubcategoria!: RequestSubcategoria;
+  public requestExpense!: RequestExpenses;
   categorias: ResponseCategoria[] = [];
   subcategorias: ResponseSubcategoria[] = [];
+  expenses: ResponseExpenses[] = [];
 
   constructor(
     private subcategoriaService: SubcategoriaService,
     private categoriaService: CategoriaService,
+    private expensesService:ExpensesService,
     private alertService: AlertService,
-    private router: Router
+    private router: Router,
+    private service: SenderService
   ) {
 
    }
@@ -57,10 +65,12 @@ export class NavBarComponent implements OnInit {
     this.getCategorias();
     this.requestCategoria = new RequestCategoria();
     this.requestSubcategoria = new RequestSubcategoria();
+    this.requestExpense = new RequestExpenses();
   }
 
   public saveCategorias() :void{
     this.categoriaService.saveCategorias(this.requestCategoria).subscribe((data)=>{
+      console.log(this.requestCategoria);
       this.router.navigate(['']);
     },
     (httpError) =>{
@@ -89,12 +99,15 @@ export class NavBarComponent implements OnInit {
   });
       this.subcategoriaService.loadSubcategorias(categoria.id).subscribe({
         next: data =>{
+          this.idcategory=categoria.id;
           this.subcategorias=data;
           this.subcategorias=Object.values(this.subcategorias[2]);
         }
       })
     }
-  saveSubcategorias() :void{
+  public saveSubcategorias() :void{
+    this.requestSubcategoria.category_id=this.idcategory;
+    console.log(this.requestSubcategoria);
     this.subcategoriaService.saveSubcategorias(this.requestSubcategoria).subscribe((data)=>{
       this.router.navigate(['']);
     },
@@ -104,4 +117,16 @@ export class NavBarComponent implements OnInit {
     }
     )
   }
+
+  public loadExpenses(subcategoria: RequestSubcategoria) {
+    this.expensesService.loadExpenses(subcategoria.id).subscribe({
+      next: data =>{
+        this.expenses=data;
+        this.expenses=Object.values(this.expenses);
+        this.service.expenses =this.expenses;
+        this.router.navigate(['/expense']);
+      }
+    });
+  }
+  
 }

@@ -1,5 +1,5 @@
 export class RequestSubcategoria{
-    public name!: String;
     public id!: number;
-    public $timestamps = false;
+    public name!: String;
+    public category_id!: number;
 }

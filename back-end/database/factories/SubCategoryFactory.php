@@ -17,7 +17,7 @@ class SubCategoryFactory extends Factory
             //
             'name' => $this->faker->words(3, true),
             'value' => $this->faker->randomFloat(2, 100, 300),
-            'date_time' => $this->faker->dateTime()
+            'date_time' => $this->faker->dateTime(),
         ];
     }
 }
