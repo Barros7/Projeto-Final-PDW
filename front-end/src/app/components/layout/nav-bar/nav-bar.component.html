@@ -6,12 +6,12 @@
   </ul>
   <ul class="dl_sub_dd">
     <li><h3>Categorias</h3></li>
-    <li><a class="dl_link2" >Saúde</a></li>
+    <li *ngFor="let categoria of categorias"><a class="dl_link2">{{ categoria.name }}</a></li>
     <li><button class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#addcategoria">Adicionar</button></li>
   </ul>
   <ul class="dl_sub_dd2">
     <li><h3>Sub-Categorias</h3></li>
-    <li><a >Consulta Médica</a></li>
+    <li><a routerLink="expense">Consulta Médica</a></li>
     <li><button class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#addsubcategoria">Adicionar</button></li>
   </ul>
 </nav>
@@ -26,13 +26,20 @@
       </div>
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
-          <label data-error="wrong" data-success="right" for="form3">Categoria</label>
+          <label for="name" data-error="wrong" data-success="right">Categoria</label>
           <i class="fas fa-user prefix grey-text"></i>
-          <input type="text" id="form3" class="form-control validate">
+          <input [(ngModel)]="requestCategoria.name" type="text" class="form-control" id="name" name="name" aria-describedby="name">
+          <div id="name" class="form-text"></div>
+        </div>
+        <div class="md-form mb-5">
+          <label for="value" data-error="wrong" data-success="right">Categoria</label>
+          <i class="fas fa-user prefix grey-text"></i>
+          <input [(ngModel)]="requestCategoria.value" type="text" class="form-control" id="value" name="value" aria-describedby="value">
+          <div id="value" class="form-text"></div>
         </div>
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-indigo">Confirmar <i class="fas fa-paper-plane-o ml-1"></i></button>
+        <button (click)="saveCategorias()" type="submit" class="btn btn-indigo">Confirmar <i class="fas fa-paper-plane-o ml-1"></i></button>
       </div>
     </div>
   </div>
@@ -59,3 +66,4 @@
     </div>
   </div>
 </div>
+
