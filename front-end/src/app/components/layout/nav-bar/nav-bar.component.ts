@@ -16,6 +16,7 @@ import { SubcategoriaService } from 'src/app/resources/services/subcategoria/sub
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
+  idcategory: any;
   public requestCategoria!: RequestCategoria;
   public requestSubcategoria!: RequestSubcategoria;
   categorias: ResponseCategoria[] = [];
@@ -77,17 +78,24 @@ export class NavBarComponent implements OnInit {
     })
   }
   loadSubcategorias(categoria: RequestCategoria) {
+    $('.dl_link2').click(function(){
+      var submenu2 = $('.dl_sub_dd2');
+      if (submenu2.css('display') == 'none') {
+          $('.dl_sub_dd2').hide(); //first hide any previously showing submenu's
+          submenu2.show(); //then show the current submenu
+      } else {
+          submenu2.hide(); //hide the current submenu again
+      }
+  });
       this.subcategoriaService.loadSubcategorias(categoria.id).subscribe({
         next: data =>{
           this.subcategorias=data;
-          console.log(data);
           this.subcategorias=Object.values(this.subcategorias[2]);
         }
       })
     }
   saveSubcategorias() :void{
     this.subcategoriaService.saveSubcategorias(this.requestSubcategoria).subscribe((data)=>{
-      console.log(this.requestSubcategoria);
       this.router.navigate(['']);
     },
     (httpError) =>{
