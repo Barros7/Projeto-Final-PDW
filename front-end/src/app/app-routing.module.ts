@@ -10,16 +10,18 @@ import { AuthGuardService } from './resources/services/auth/auth-guard.service';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
+  { path: 'home', component: HomeComponent },
+  /*
   { 
     path:'home', 
     canActivate: [AuthGuardService],
     component: HomeComponent, 
     loadChildren: () =>
     import('./components/views/home/home.component').then( (h) => h.HomeComponent ),
-  },
+  },*/
   { path: 'register', component: RegisterComponent },
   { path:'expense', component: ExpenseComponent },
-  { path:'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
+  { path:'profile', component: ProfileComponent },
   { path:'about', component: AboutComponent },
 ];
 

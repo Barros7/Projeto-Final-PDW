@@ -1,18 +1,21 @@
 <!-- content -->
-<main class="page-content">
-    <div class="page-content p-5" id="content">
-        <h2 class="display-4 text-white">Págin De definição do perfil, podemos alterar nome, adicionar foto (se necessário) e mudar a senha...</h2>
-        <p class="lead text-white mb-0">blablablabla.</p>
-        <div class="separator"></div>
-        <div class="row text-white">
-            <p class="lead">
-              Aqui nesta tela pode ter uma tabela ou o que quiserem <br><br>
-              Aqui nesta tela pode ter uma tabela ou o que quiserem <br><br>
-              Aqui nesta tela pode ter uma tabela ou o que quiserem <br><br>
-              Aqui nesta tela pode ter uma tabela ou o que quiserem <br><br>
-              Aqui nesta tela pode ter uma tabela ou o que quiserem <br><br>
-            </p>
-        </div>
-      </div>
-</main>
+<form class="container">
+  <div class="mb-3">
+    <label for="name" class="form-label">User Name</label>
+    <input [(ngModel)]="RequestProfile.name" type="text" class="form-control" id="name" name="name" aria-describedby="name">
+    <div id="name" class="form-text"></div>
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input [(ngModel)]="RequestProfile.email" type="email" class="form-control" id="email" name="email" aria-describedby="email">
+    <div id="email" class="form-text"></div>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input [(ngModel)]="RequestProfile.password" type="password" class="form-control" id="password" name="password">
+  </div>
+  <br>
+  <button (click)="doManagementProfile()" type="submit" class="btn btn-primary">Atualizar dados</button>
+  <br><br>
+</form>
 <!-- End content -->
