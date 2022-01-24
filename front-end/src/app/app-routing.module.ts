@@ -4,7 +4,6 @@ import { LoginComponent } from './components/views/login/login.component';
 import { RegisterComponent } from './components/views/register/register.component';
 import { HomeComponent } from './components/views/home/home.component';
 import { ExpenseComponent } from './components/views/expense/expense.component';
-import { AboutComponent } from './components/views/about/about.component';
 import { ProfileComponent } from './components/views/profile/profile.component';
 import { AuthGuardService } from './resources/services/auth/auth-guard.service';
 
@@ -22,7 +21,6 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path:'expense', component: ExpenseComponent },
   { path:'profile', component: ProfileComponent },
-  { path:'about', component: AboutComponent },
 ];
 
 @NgModule({
