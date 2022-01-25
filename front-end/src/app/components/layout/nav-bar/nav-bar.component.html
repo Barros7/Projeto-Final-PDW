@@ -31,12 +31,6 @@
           <input [(ngModel)]="requestCategoria.name" type="text" class="form-control" id="name" name="name" aria-describedby="name">
           <div id="name" class="form-text"></div>
         </div>
-        <div class="md-form mb-5">
-          <label for="value" data-error="wrong" data-success="right">Valor</label>
-          <i class="fas fa-user prefix grey-text"></i>
-          <input [(ngModel)]="requestCategoria.value" type="text" class="form-control" id="value" name="value" aria-describedby="value">
-          <div id="value" class="form-text"></div>
-        </div>
       </div>
       <div class="modal-footer d-flex justify-content-center">
         <button (click)="saveCategorias()" type="submit" class="btn btn-indigo">Confirmar <i class="fas fa-paper-plane-o ml-1"></i></button>

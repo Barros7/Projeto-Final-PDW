@@ -39,7 +39,8 @@ class ExpenseController extends Controller
         $expense = new Expense();
         $expense->name = $request->name;
         $expense->value = $request->value;
-
+        $expense->subcategory_id = $request->subcategory_id;
+        $expense->users_id = $request->users_id;
         $expense->save();
     }
 
@@ -70,10 +71,10 @@ class ExpenseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function showFindid($subcategory_id)
+    public function showFindid($subcategory_id, $user_id)
     {
         //
-        $expense = Expense::where('subcategory_id', $subcategory_id)->get();
+        $expense = Expense::where('subcategory_id', $subcategory_id)->orWhere('users_id', $user_id)->get();
         if (is_null($expense)) {
             return $this->sendError('Expense not found.');
         }

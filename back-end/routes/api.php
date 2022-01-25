@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
     Route::get('/expense', 'App\Http\Controllers\ExpenseController@index'); //Show all registered expense
     Route::get('/expense/{id}', 'App\Http\Controllers\ExpenseController@show'); //Show one registered expense
-    Route::get('/expense/find/{subcategory_id}', 'App\Http\Controllers\ExpenseController@showFindid');
+    Route::get('/expense/find/{subcategory_id}/{user_id}', 'App\Http\Controllers\ExpenseController@showFindid');
     Route::post('/expense/save', 'App\Http\Controllers\ExpenseController@store'); //Save expense on database
     Route::put('/expense/edit/{id}', 'App\Http\Controllers\ExpenseController@update'); //Edit expense
     Route::delete('/expense/delete/{id}', 'App\Http\Controllers\ExpenseController@destroy'); //Delete expense
