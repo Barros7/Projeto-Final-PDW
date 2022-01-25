@@ -1,5 +1,5 @@
 .btn-rounded{
-    width: 150px;
+    width: 130px;
     height: auto;
     display: block;
     text-decoration: none;
@@ -7,8 +7,8 @@
     background: #5c5758;
     padding: 5px;
     border: 1px solid #ccc;
-    right: -16%;
-    bottom: 61%;
+    right: 9%;
+    top: 15%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     position: absolute;
