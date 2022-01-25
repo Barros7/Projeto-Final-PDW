@@ -19,7 +19,6 @@ class SubCategory extends Migration
             $table->string('name');
             $table->timestamps();
             $table->unsignedBigInteger('category_id');
-            $table->timestamps();
             $table->foreign('category_id')->references('id')->on('category');
         });
     }
