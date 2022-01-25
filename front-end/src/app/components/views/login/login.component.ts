@@ -4,6 +4,7 @@ import { ResponseLogin } from 'src/app/resources/models/login/ResponseLogin';
 import { AlertService } from 'src/app/resources/services/alert/alert.service';
 import { LoginService } from 'src/app/resources/services/login/login.service';
 import { Router } from '@angular/router';
+import { data } from 'jquery';
 
 
 @Component({
@@ -26,15 +27,15 @@ export class LoginComponent implements OnInit {
     this.requestLogin = new RequestLogin();
   }
 
-  public doLogin() :void {
+  public doLogin(): void {
     this.loginService.doLogin(this.requestLogin).subscribe((data)=>{
-      console.log("success!");
+      console.log(data);
       this.router.navigate(['home']);
       },
       (httpError) =>{
         this.alertService.error(httpError, httpError.error.message);
         //console.error(httpError);
-      }
+      },
     );
   }
 }

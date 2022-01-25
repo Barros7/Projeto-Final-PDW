@@ -12,7 +12,7 @@ export class ProfileService {
   constructor(private httpClient: HttpClient) { }
 
   public doManagementProfile(RequestProfile: RequestProfile): Observable<ResponseProfile>{
-    return this.httpClient.post<ResponseProfile>('http://127.0.0.1:8000/api/register', RequestProfile);
+    return this.httpClient.put<ResponseProfile>('http://127.0.0.1:8000/api/user/edit/:id', RequestProfile);
     console.log(ResponseProfile)
   }
 }
