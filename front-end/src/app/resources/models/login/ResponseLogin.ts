@@ -1,3 +1,4 @@
 export class ResponseLogin{
-    public jwt!: String; 
+    public jwt!: String;
+    public id!: number;
 }

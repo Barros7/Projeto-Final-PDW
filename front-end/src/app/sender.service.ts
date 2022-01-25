@@ -6,6 +6,8 @@ import { ResponseExpenses } from './resources/models/Expenses/ResponseExpenses';
 })
 export class SenderService {
   expenses: ResponseExpenses[] = [];
+  idsubcategoria!: number;
+  iduser!: number;
   constructor() { }
 
 }

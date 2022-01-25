@@ -71,7 +71,6 @@ export class NavBarComponent implements OnInit {
   public saveCategorias() :void{
     this.categoriaService.saveCategorias(this.requestCategoria).subscribe((data)=>{
       console.log(this.requestCategoria);
-      this.router.navigate(['']);
     },
     (httpError) =>{
       this.alertService.error(httpError, httpError.error.message);
@@ -107,9 +106,7 @@ export class NavBarComponent implements OnInit {
     }
   public saveSubcategorias() :void{
     this.requestSubcategoria.category_id=this.idcategory;
-    console.log(this.requestSubcategoria);
     this.subcategoriaService.saveSubcategorias(this.requestSubcategoria).subscribe((data)=>{
-      this.router.navigate(['']);
     },
     (httpError) =>{
       this.alertService.error(httpError, httpError.error.message);
@@ -119,8 +116,9 @@ export class NavBarComponent implements OnInit {
   }
 
   public loadExpenses(subcategoria: RequestSubcategoria) {
-    this.expensesService.loadExpenses(subcategoria.id).subscribe({
+    this.expensesService.loadExpenses(subcategoria.id, this.service.iduser).subscribe({
       next: data =>{
+        this.service.idsubcategoria=subcategoria.id;
         this.expenses=data;
         this.expenses=Object.values(this.expenses);
         this.service.expenses =this.expenses;
